@@ -61,7 +61,7 @@
                         <div class="dropdown-menu dropdown-menu-end position-absolute">
                             <a class="dropdown-item" href="#">Profile</a>
                             <a class="dropdown-item" href="#">Account Setting</a>
-                            <a class="dropdown-item" href="/PeoplePerTask/project/pages/index.html">Log out</a>
+                            <a class="dropdown-item" href="/jobify/logout">Log out</a>
                         </div>
                     </li>
                 </ul>
@@ -73,7 +73,6 @@
                 <tr>
                     <th>Name Candidat</th>
                     <th>Job Title</th>
-                    <th>description</th>
                     <th>status</th>
                     <th>Actions</th>
                 </tr>
@@ -93,10 +92,6 @@
                         </td>
                         <td>
                             <?= $record['title'] ?>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1 f_title"><?= $record['description'] ?></p>
-
                         </td>
                         <td class="f_position"><?= $record['status'] ?></td>
                         <td>

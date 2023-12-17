@@ -49,4 +49,11 @@ if (isset($_POST['key'])) {
     die();
 }
 
+$notifications = array();
+if (isset($_SESSION['id'])) {
+    require __DIR__ . '/../model/Notification.php';
+    $notifications = $notification->getNotif($_SESSION['id']);
+    $notification->close();
+}
+
 require __DIR__ . '/../views/index.view.php';

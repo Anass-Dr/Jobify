@@ -13,6 +13,7 @@ $publicRoutes = [
 $privateRoutes = [
     "candidat" => [
         "/jobify/" => 'controllers/index.php',
+        "/jobify/newApp" => 'controllers/newApp.php',
         "/jobify/logout" => 'controllers/logout.php',
     ],
     "admin" => [

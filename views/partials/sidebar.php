@@ -10,9 +10,6 @@
             <li class="sidebar_item<?php if ($currPath === 'dashboard') echo ' active' ?>" style="width: 100%;">
                 <a href="/jobify/dashboard" class="sidebar_link"> <img src="views/img/1. overview.svg" alt="icon">Overview</a>
             </li>
-            <li class="sidebar_item<?php if ($currPath === 'candidat') echo ' active' ?>">
-                <a href="/jobify/candidat" class="sidebar_link"> <img src="views/img/agents.svg" alt="icon">Candidat</a>
-            </li>
             <li class="sidebar_item<?php if ($currPath === 'job') echo ' active' ?>">
                 <a href="/jobify/job" class="sidebar_link"> <img src="views/img/task.svg" alt="icon">Job</a>
             </li>

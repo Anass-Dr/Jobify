@@ -55,6 +55,23 @@
                         <?php if (isset($_SESSION['id'])) : ?>
                             <div class="navbar pr-0 gap-4">
                                 <img class="notification mr-3" src="views/img/new.svg" alt="icon">
+
+                                <!-- Bootstrap Toast :-->
+                                <?php foreach ($notifications as $record) : ?>
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+                                            <strong class="me-auto">Notification</strong>
+                                            <small>Just now</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            <?= $record['content'] ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                                 <div class="card new w-auto">
                                     <div class="list-group list-group-light">
                                         <div class="list-group-item px-3 d-flex justify-content-between align-items-center ">
@@ -192,13 +209,13 @@
 
         function addOffer (job_id) {
             const req = new XMLHttpRequest();
-            req.open('POST', 'controllers/addOffer.php');
+            req.open('POST', '/jobify/newApp');
             req.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
             req.send(`job_id=${job_id}`);
             req.onreadystatechange = function () {
                 let msg;
                 if (this.readyState === 4 && this.status === 200) {
-                   msg = this.response ? 'Offer added successfully' : 'Offer already exist';
+                   msg = this.responseText === 'ok' ? 'Offer added successfully' : 'Offer already exist';
                 }
                 document.querySelector('.modal-body').textContent = msg;
                 $('#modal').modal('show');

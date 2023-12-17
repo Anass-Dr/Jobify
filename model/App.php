@@ -4,7 +4,7 @@ include_once 'Database.php';
 
 class App extends Database {
     public function check ($user_id, $job_id) {
-        $stmt = $this->db->prepare("SELECT * FROM application WHERE user_id = ? AND job_id = ?");
+        $stmt = $this->db->prepare("SELECT * FROM applications WHERE user_id = ? AND job_id = ?");
         $stmt->execute([$user_id, $job_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -30,10 +30,10 @@ class App extends Database {
 
         if ($items[0] === 'approved') {
             # Disapprove all the other applications
-            $stmt = $this->db->prepare("UPDATE applications SET status = 'not approved' WHERE id = ?");
+            $stmt = $this->db->prepare("UPDATE applications SET status = 'not approved' WHERE job_id = ?");
             $stmt->execute([$items[2]]);
 
-            # Add Notification :
+            # Add Approved Notification :
             $stmt = $this->db->prepare("INSERT INTO notifications VALUES (NULL, ?, ?)");
             $stmt->execute(['You have been approved', $_SESSION['id']]);
         }
