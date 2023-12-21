@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Form | CodingLab</title>
-  <link rel="stylesheet" href="views/styles/loginstyle.css">
+  <link rel="stylesheet" href="styles/loginstyle.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 </head>
 
@@ -29,7 +29,7 @@
           <input type="submit" name="login" value="Login">
         </div>
         <span style="color:red;"></span>
-        <div class="signup-link">Not a member? <a href="/jobify/register">Signup now</a></div>
+        <div class="signup-link">Not a member? <a href="/register">Signup now</a></div>
       </form>
     </div>
   </div>
