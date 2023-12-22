@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../app/core/functions.php';
 
@@ -22,9 +24,18 @@ $app->router->get('/logout', fn () => App\controllers\Authentication::logout());
 $app->router->get('/application', fn () => App\controllers\ApplicationController::applicationsHTML());
 $app->router->post('/application', fn () => App\controllers\ApplicationController::updateStatus());
 
+# Dashboard page :
+$app->router->get('/dashboard', fn () => \App\controllers\Dashboard::showStatis());
+
 # Job page :
 $app->router->get('/job', fn () => \App\controllers\JobController::jobsHTML());
 $app->router->post('/removeJob', fn () => \App\controllers\JobController::removeJob());
 $app->router->post('/updateJob', fn () => \App\controllers\JobController::updateJob());
+
+# Not found page :
+$app->router->get('/not-found', fn () => \App\controllers\Authentication::notFound());
+
+# Access Denied page :
+$app->router->get('/access-denied', fn () => \App\controllers\Authentication::accessDenied());
 
 $app->run();
