@@ -14,6 +14,8 @@ $app->router->get('/islogin', fn () => App\controllers\UserController::isLogin()
 $app->router->post('/newApplication', fn () => \App\controllers\ApplicationController::addApplication());
 
 # Authentication :
+$app->router->post('/checkEmail', fn () => \App\controllers\Authentication::checkEmail());
+$app->router->post('/checkPassword', fn () => \App\controllers\Authentication::checkPassword());
 $app->router->get('/login', fn () => App\controllers\Authentication::loginHTML());
 $app->router->post('/login', fn () => App\controllers\Authentication::login());
 $app->router->get('/register', fn () => App\controllers\Authentication::registerHTML());
